@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+*.lock
+*.log
+
+# Nuxt
+.nuxt/
+.output/
+dist/
+
+# OS
+.DS_Store
+.vscode/
+.idea/
+
+# Environment
+.env
+.env.local
