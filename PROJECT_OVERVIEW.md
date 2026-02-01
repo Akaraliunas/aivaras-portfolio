@@ -126,7 +126,7 @@ colors: {
 ```
 
 ### Global CSS Classes (utilities)
-- `.border-cyber`: 1px white border at 10% opacity
+- `.border-cyber`: 0px white border at 10% opacity
 - `.glass`: Glassmorphism effect (semi-transparent + blur)
 - `.glass-hover`: Glass with interactive hover state
 - `.glow-text`: Text with cyan drop shadow

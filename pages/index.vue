@@ -10,20 +10,17 @@
               Aivaras Karaliūnas
             </h1>
             <p class="text-lg md:text-xl text-gray-400 mb-4">
-              Full-Stack Developer | 5+ years | Magento · Laravel · Vue.js
+              Full-Stack Developer | 6+ years | <br> Magento · Laravel · Vue.js
             </p>
-            <p class="text-base text-gray-300">
-              Building e-commerce platforms & corporate websites | Results-driven | Remote/Hybrid
+            <p class="text-base text-gray-300"> 
+              Building e-commerce platforms & corporate websites | <br> Results-driven | Remote/Hybrid
             </p>
           </div>
 
           <div class="space-y-3">
-            <p class="font-mono text-sm text-gray-500">Currently working on:</p>
+            <p class="font-mono text-sm text-gray-500">Currently working:</p>
             <p class="text-neon-cyan font-mono text-lg">
               → UAB FrontIT (Fullstack Developer)
-            </p>
-            <p class="text-neon-teal font-mono text-lg">
-              → 2+ years | E-commerce & web solutions
             </p>
           </div>
 
@@ -67,16 +64,20 @@
           <div class="flex flex-wrap gap-2">
             <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">Magento</span>
             <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">Laravel</span>
-            <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">Vue.js</span>
+            <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">React</span>
             <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">PHP</span>
+            <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">MySQL</span>
             <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">Docker</span>
+            <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">AI</span>
+            <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">CI/CD</span>
+            <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">GraphQL</span>
           </div>
         </div>
 
         <div class="glass rounded-lg p-6 md:p-8">
           <div class="flex justify-between items-start mb-4">
             <div>
-              <h3 class="font-mono font-bold text-xl text-neon-cyan">Elsoft</h3>
+              <h3 class="font-mono font-bold text-xl text-neon-cyan">Creation</h3>
               <p class="text-gray-400 text-sm mt-1">Developer</p>
             </div>
             <span class="text-gray-500 font-mono text-sm">2022.11 - 2023.06</span>
@@ -92,7 +93,7 @@
         <div class="glass rounded-lg p-6 md:p-8">
           <div class="flex justify-between items-start mb-4">
             <div>
-              <h3 class="font-mono font-bold text-xl text-neon-cyan">Evitus</h3>
+              <h3 class="font-mono font-bold text-xl text-neon-cyan">VSBL Web Studio</h3>
               <p class="text-gray-400 text-sm mt-1">Full-Stack Developer</p>
             </div>
             <span class="text-gray-500 font-mono text-sm">2019.10 - 2022.10</span>
@@ -192,7 +193,7 @@
     <footer class="border-t border-cyber mt-20 py-8">
       <div class="max-w-6xl mx-auto px-4">
         <p class="text-center text-gray-600 font-mono text-sm">
-          © 2026 Aivaras Karaliūnas. Crafted with precision.
+          © 2026 Aivaras Karaliūnas. Crafted with precision. 
         </p>
       </div>
     </footer>
