@@ -7,7 +7,7 @@
         <div class="space-y-8">
           <div>
             <h1 class="font-mono text-4xl md:text-5xl font-bold mb-4 text-white">
-              Aivaras
+              Aivaras Karaliūnas 
             </h1>
             <p class="text-lg md:text-xl text-gray-400">
               Full-Stack Developer specializing in headless e-commerce, Magento optimization, and API design.
@@ -80,7 +80,7 @@
         <div class="space-y-6">
           <div>
             <p class="text-gray-500 font-mono text-sm mb-2">Email:</p>
-            <p class="text-neon-cyan font-mono">contact@aivaras.dev</p>
+            <p class="text-neon-cyan font-mono">aivaras@karaliunas.dev</p>
           </div>
           <div>
             <p class="text-gray-500 font-mono text-sm mb-2">Social:</p>
@@ -126,7 +126,7 @@
     <footer class="border-t border-cyber mt-20 py-8">
       <div class="max-w-6xl mx-auto px-4">
         <p class="text-center text-gray-600 font-mono text-sm">
-          © 2026 Aivaras. Crafted with precision.
+          © 2026 Aivaras Karaliūnas. Crafted with precision.
         </p>
       </div>
     </footer>
@@ -135,6 +135,6 @@
 
 <script setup lang="ts">
 useHead({
-  title: 'Aivaras - Full-Stack Developer',
+  title: 'Aivaras K. - Full-Stack Developer',
 })
 </script>

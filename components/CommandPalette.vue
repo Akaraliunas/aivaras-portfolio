@@ -4,7 +4,7 @@
       <div class="flex items-center justify-between">
         <!-- Logo / Title -->
         <NuxtLink to="/" class="font-mono font-bold text-lg glow-text">
-          aivaras<span class="text-neon-teal">:</span>~<span class="text-neon-cyan">$</span>
+          aivaras-karaliunas<span class="text-neon-teal">:</span>~<span class="text-neon-cyan">$</span>
         </NuxtLink>
 
         <!-- Navigation -->

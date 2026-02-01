@@ -1,5 +1,3 @@
-import { defineNuxtConfig } from 'nuxt'
-
 export default defineNuxtConfig({
   ssr: true,
   nitro: {
@@ -48,7 +46,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'Aivaras - Full-Stack Developer',
+      title: 'Aivaras K. - Full-Stack Developer',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
