@@ -48,7 +48,7 @@ useHead({
 }
 
 :deep(.prose-content h2) {
-  @apply font-mono font-bold text-xl mt-8 mb-4 glow-text;
+  @apply font-mono font-bold text-xl mt-8 mb-4;
 }
 
 :deep(.prose-content h3) {
