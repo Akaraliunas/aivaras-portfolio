@@ -48,66 +48,34 @@
 
     <!-- Experience Section -->
     <section class="max-w-6xl mx-auto px-4 py-20 border-t border-cyber">
-      <h2 class="section-title">
-        / experience
-      </h2>
-      <div class="space-y-8">
-        <div class="glass rounded-lg p-6 md:p-8">
-          <div class="flex justify-between items-start mb-4">
-            <div>
-              <h3 class="font-mono font-bold text-xl text-neon-cyan">FrontIT</h3>
-              <p class="text-gray-400 text-sm mt-1">Fullstack Developer</p>
-            </div>
-            <span class="text-gray-500 font-mono text-sm">2023.07 - Now</span>
-          </div>
-          <p class="text-gray-300 mb-3">2+ years | E-commerce & web solutions</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">Magento</span>
-            <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">Laravel</span>
-            <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">React</span>
-            <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">PHP</span>
-            <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">MySQL</span>
-            <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">Docker</span>
-            <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">AI</span>
-            <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">CI/CD</span>
-            <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">GraphQL</span>
-          </div>
+  <h2 class="section-title">/ experience</h2>
+  
+  <div v-if="pending" class="text-neon-cyan font-mono">Loading assets...</div>
+  
+  <div v-else class="space-y-8">
+    <div v-for="exp in experiences" :key="exp.id" class="glass rounded-lg p-6 md:p-8">
+      <div class="flex justify-between items-start mb-4">
+        <div>
+          <h3 class="font-mono font-bold text-xl text-neon-cyan">{{ exp.company_name }}</h3>
+          <p class="text-gray-400 text-sm mt-1">{{ exp.role }}</p>
         </div>
-
-        <div class="glass rounded-lg p-6 md:p-8">
-          <div class="flex justify-between items-start mb-4">
-            <div>
-              <h3 class="font-mono font-bold text-xl text-neon-cyan">Creation</h3>
-              <p class="text-gray-400 text-sm mt-1">Developer</p>
-            </div>
-            <span class="text-gray-500 font-mono text-sm">2022.11 - 2023.06</span>
-          </div>
-          <p class="text-gray-300 mb-3">Magento & Backend Development</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">Magento</span>
-            <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">PHP</span>
-            <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">MySQL</span>
-          </div>
-        </div>
-
-        <div class="glass rounded-lg p-6 md:p-8">
-          <div class="flex justify-between items-start mb-4">
-            <div>
-              <h3 class="font-mono font-bold text-xl text-neon-cyan">VSBL Web Studio</h3>
-              <p class="text-gray-400 text-sm mt-1">Full-Stack Developer</p>
-            </div>
-            <span class="text-gray-500 font-mono text-sm">2019.10 - 2022.10</span>
-          </div>
-          <p class="text-gray-300 mb-3">Full-stack web development</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">Laravel</span>
-            <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">Wordpress</span>
-            <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">Prestashop</span>
-            <span class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan">Tailwind</span>
-          </div>
-        </div>
+        <span class="text-gray-500 font-mono text-sm">{{ exp.period }}</span>
       </div>
-    </section>
+      
+      <p class="text-gray-300 mb-3">{{ exp.description }}</p>
+      
+      <div class="flex flex-wrap gap-2">
+        <span 
+          v-for="tech in exp.technologies" 
+          :key="tech"
+          class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan"
+        >
+          {{ tech }}
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Skills Section -->
     <section id="skills" class="max-w-6xl mx-auto px-4 py-20 border-t border-cyber">
@@ -158,7 +126,7 @@
               <a href="#" class="text-neon-cyan hover:text-neon-teal font-mono text-sm">
                 → Twitter
               </a>
-              <a href="#" class="text-neon-cyan hover:text-neon-teal font-mono text-sm">
+              <a href="https://www.linkedin.com/in/aivaras-karali%C5%ABnas/" class="text-neon-cyan hover:text-neon-teal font-mono text-sm">
                 → LinkedIn
               </a>
             </div>
@@ -201,6 +169,14 @@
 </template>
 
 <script setup lang="ts">
+const config = useRuntimeConfig()
+
+// Traukiame patirtis iš tavo Laravel API
+const { data: experiences, pending } = await useFetch('/experience', {
+  baseURL: config.public.apiBase,
+  transform: (res: any) => res.data
+})
+
 useHead({
   title: 'Aivaras K. - Full-Stack Developer',
 })
