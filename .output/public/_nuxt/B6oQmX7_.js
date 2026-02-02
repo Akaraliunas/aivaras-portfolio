@@ -1,1 +1,0 @@
-import{e as o,a2 as n,w as s,_ as f,o as p,a4 as _}from"./DeClFxsy.js";const l=o({__name:"ProseA",props:{href:{type:String,default:""},target:{type:String,default:void 0,required:!1}},setup(t){const e=t;return(r,c)=>{const a=f;return p(),n(a,{href:e.href,target:e.target},{default:s(()=>[_(r.$slots,"default")]),_:3},8,["href","target"])}}});export{l as default};
