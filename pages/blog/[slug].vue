@@ -16,7 +16,7 @@
           <ContentRenderer :value="article" />
         </div>
 
-        <div class="border-t border-cyber border-0 pt-8 mt-12">
+        <div class="border-t border-cyber border-none pt-8 mt-12">
           <NuxtLink to="/blog" class="text-neon-cyan hover:text-neon-teal font-mono text-sm">
             ← Back to articles
           </NuxtLink>

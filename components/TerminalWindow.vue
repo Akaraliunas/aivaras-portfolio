@@ -1,7 +1,7 @@
 <template>
   <div class="glass rounded-lg overflow-hidden">
     <!-- Terminal Header -->
-    <div class="bg-dark-900 border-b border-cyber border-0 px-4 py-3 flex items-center justify-between">
+    <div class="bg-dark-900 border-b border-cyber border-none px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-2">
         <div class="w-3 h-3 rounded-full bg-red-500"></div>
         <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
