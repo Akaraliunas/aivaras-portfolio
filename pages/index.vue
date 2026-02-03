@@ -170,6 +170,7 @@
             class="terminal-input w-full"
             required
           />
+          <input v-model="form.website" type="text" class="hidden" tabindex="-1" autocomplete="off" />
           <textarea
             v-model="form.message"
             placeholder="Your message..."
