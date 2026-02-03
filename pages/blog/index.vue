@@ -25,7 +25,7 @@
             </h2>
             
             <p class="text-gray-400 text-sm mb-4">
-              {{ article.description }}
+              {{ article.description.replace(/<[^>]*>?/gm, '') }}
             </p>
 
             <div class="flex items-center justify-between">

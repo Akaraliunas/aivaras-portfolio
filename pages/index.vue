@@ -7,10 +7,10 @@
         <div class="space-y-8">
           <div>
             <h1 class="font-mono text-4xl md:text-5xl font-bold mb-4 text-white">
-              Aivaras Karaliūnas
+              {{ about?.full_name || 'Aivaras Karaliūnas' }}
             </h1>
             <p class="text-lg md:text-xl text-gray-400 mb-4">
-              Full-Stack Developer | 6+ years | <br> Magento · Laravel · Vue.js
+              {{ about?.title }} | 6+ years | <br> Magento · Laravel · Vue.js
             </p>
             <p class="text-base text-gray-300"> 
               Building e-commerce platforms & corporate websites | <br> Results-driven | Remote/Hybrid
@@ -25,12 +25,12 @@
           </div>
 
           <div class="flex gap-4 pt-4">
-            <button class="btn-primary">
+            <!-- <button class="btn-primary">
               View My Work
-            </button>
-            <button class="btn-secondary">
+            </button> -->
+            <a href="#contact" class="btn-secondary">
               Get in Touch
-            </button>
+            </a>
           </div>
         </div>
 
@@ -47,7 +47,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section class="max-w-6xl mx-auto px-4 py-20 border-t border-cyber border-none">
+    <section class="max-w-6xl mx-auto px-4 py-20 border-cyber border-none">
       <h2 class="section-title">/ experience</h2>
       
       <div v-if="pending" class="text-neon-cyan font-mono">Loading assets...</div>
@@ -78,7 +78,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="max-w-6xl mx-auto px-4 py-20 border-t border-cyber border-none">
+    <section id="skills" class="max-w-6xl mx-auto px-4 py-20 border-cyber border-none">
       <h2 class="section-title">
         / skills
       </h2>
@@ -91,17 +91,19 @@
         <h3 class="font-mono font-bold text-xl mb-4 glow-text">
           / about
         </h3>
-        <p class="text-gray-300 leading-relaxed mb-4">
-          I'm a full-stack developer motivated by results. With 5+ years of professional experience, I've built and optimized e-commerce platforms, corporate websites, and scalable web solutions. My focus is on writing clean code, ensuring high performance, and delivering precision-engineered solutions.
-        </p>
-        <p class="text-gray-300 leading-relaxed">
-          Whether I'm architecting backend systems with Laravel, optimizing Magento implementations, or building responsive frontends with Vue.js, I bring the same principles to everything: precision, efficiency, and a commitment to understanding the fundamentals. I thrive in collaborative environments and am passionate about technical excellence.
-        </p>
+        <div v-if="aboutPending" class="animate-pulse space-y-4">
+          <div class="h-4 bg-gray-700 rounded w-3/4"></div>
+          <div class="h-4 bg-gray-700 rounded w-5/6"></div>
+        </div>
+
+        <div v-else class="space-y-4 text-gray-300 leading-relaxed">
+          <p class="text-gray-300 leading-relaxed [&>*]:pb-4" v-html="about?.bio"></p>
+        </div>
       </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="max-w-6xl mx-auto px-4 py-20 border-t border-cyber border-none">
+    <section id="contact" class="max-w-6xl mx-auto px-4 py-20 border-cyber border-none">
       <h2 class="section-title">
         / contact
       </h2>
@@ -171,10 +173,17 @@
 <script setup lang="ts">
 const config = useRuntimeConfig()
 
-// Traukiame patirtis iš tavo Laravel API
+// Fetch experiences Data
 const { data: experiences, pending } = await useFetch('/experiences', {
   baseURL: config.public.apiBase,
   transform: (res: any) => res.data
+})
+
+// Fetch About Data (The Singleton)
+const { data: about, pending: aboutPending } = await useFetch('/about', {
+  key: 'about-me-data',
+  baseURL: config.public.apiBase,
+  // transform: (res: any) => res.data
 })
 
 useHead({
