@@ -1,5 +1,5 @@
 <template>
-  <header class="sticky top-0 z-50 glass border-b border-cyber">
+  <header class="sticky top-0 z-50 glass border-b border-cyber border-0">
     <div class="max-w-6xl mx-auto px-4 py-4">
       <div class="flex items-center justify-between">
         <!-- Logo / Title -->
@@ -32,7 +32,7 @@
       <!-- Mobile Navigation -->
       <nav
         v-if="isMenuOpen"
-        class="md:hidden mt-4 space-y-3 pb-4 border-t border-cyber pt-4"
+        class="md:hidden mt-4 space-y-3 pb-4 border-t border-cyber border-0 pt-4"
       >
         <NuxtLink
           v-for="link in navigationLinks"

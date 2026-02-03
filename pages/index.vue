@@ -47,7 +47,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section class="max-w-6xl mx-auto px-4 py-20 border-t border-cyber">
+    <section class="max-w-6xl mx-auto px-4 py-20 border-t border-cyber border-0">
       <h2 class="section-title">/ experience</h2>
       
       <div v-if="pending" class="text-neon-cyan font-mono">Loading assets...</div>
@@ -78,7 +78,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="max-w-6xl mx-auto px-4 py-20 border-t border-cyber">
+    <section id="skills" class="max-w-6xl mx-auto px-4 py-20 border-t border-cyber border-0">
       <h2 class="section-title">
         / skills
       </h2>
@@ -101,7 +101,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="max-w-6xl mx-auto px-4 py-20 border-t border-cyber">
+    <section id="contact" class="max-w-6xl mx-auto px-4 py-20 border-t border-cyber border-0">
       <h2 class="section-title">
         / contact
       </h2>
@@ -158,7 +158,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-cyber mt-20 py-8">
+    <footer class="border-t border-cyber border-0 mt-20 py-8">
       <div class="max-w-6xl mx-auto px-4">
         <p class="text-center text-gray-600 font-mono text-sm">
           © 2026 Aivaras Karaliūnas. Crafted with precision. 
