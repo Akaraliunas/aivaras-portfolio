@@ -12,6 +12,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        cyber: '#00f3ff',
         dark: {
           50: '#f9fafb',
           100: '#f3f4f6',

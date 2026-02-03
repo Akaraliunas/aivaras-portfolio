@@ -48,34 +48,34 @@
 
     <!-- Experience Section -->
     <section class="max-w-6xl mx-auto px-4 py-20 border-t border-cyber">
-  <h2 class="section-title">/ experience</h2>
-  
-  <div v-if="pending" class="text-neon-cyan font-mono">Loading assets...</div>
-  
-  <div v-else class="space-y-8">
-    <div v-for="exp in experiences" :key="exp.id" class="glass rounded-lg p-6 md:p-8">
-      <div class="flex justify-between items-start mb-4">
-        <div>
-          <h3 class="font-mono font-bold text-xl text-neon-cyan">{{ exp.company_name }}</h3>
-          <p class="text-gray-400 text-sm mt-1">{{ exp.role }}</p>
+      <h2 class="section-title">/ experience</h2>
+      
+      <div v-if="pending" class="text-neon-cyan font-mono">Loading assets...</div>
+      
+      <div v-else class="space-y-8">
+        <div v-for="exp in experiences" :key="exp.id" class="glass rounded-lg p-6 md:p-8">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="font-mono font-bold text-xl text-neon-cyan">{{ exp.company_name }}</h3>
+              <p class="text-gray-400 text-sm mt-1">{{ exp.role }}</p>
+            </div>
+            <span class="text-gray-500 font-mono text-sm">{{ exp.period }}</span>
+          </div>
+          
+          <p class="text-gray-300 mb-3">{{ exp.description }}</p>
+          
+          <div class="flex flex-wrap gap-2">
+            <span 
+              v-for="tech in exp.technologies" 
+              :key="tech"
+              class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan"
+            >
+              {{ tech }}
+            </span>
+          </div>
         </div>
-        <span class="text-gray-500 font-mono text-sm">{{ exp.period }}</span>
       </div>
-      
-      <p class="text-gray-300 mb-3">{{ exp.description }}</p>
-      
-      <div class="flex flex-wrap gap-2">
-        <span 
-          v-for="tech in exp.technologies" 
-          :key="tech"
-          class="text-xs px-3 py-1 bg-dark-900 border border-neon-cyan border-opacity-30 rounded text-neon-cyan"
-        >
-          {{ tech }}
-        </span>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- Skills Section -->
     <section id="skills" class="max-w-6xl mx-auto px-4 py-20 border-t border-cyber">

@@ -64,7 +64,7 @@ useHead({
 }
 
 :deep(.prose-content pre) {
-  @apply bg-dark-900 border border-cyber rounded-lg p-4 overflow-x-auto;
+  @apply bg-dark-900 border rounded-lg p-4 overflow-x-auto;
 }
 
 :deep(.prose-content a) {
