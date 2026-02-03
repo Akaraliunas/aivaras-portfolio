@@ -7,16 +7,14 @@
         </h1>
 
         <div class="flex items-center gap-4 mb-12 text-gray-500 font-mono text-sm">
-          <span>{{ new Date(article.date).toLocaleDateString() }}</span>
-          <span>•</span>
-          <span>{{ article.readingTime }} min read</span>
+          <span>{{ new Date(article.published_at).toLocaleDateString() }}</span>
+          <span v-if="article.reading_time">•</span>
+          <span v-if="article.reading_time">{{ article.reading_time }} min read</span>
         </div>
 
-        <div class="prose-content mb-12">
-          <ContentRenderer :value="article" />
-        </div>
+        <div class="prose-content mb-12" v-html="article.content"></div>
 
-        <div class="border-t border-cyber border-none pt-8 mt-12">
+        <div class="border-t border-cyber pt-8 mt-12">
           <NuxtLink to="/blog" class="text-neon-cyan hover:text-neon-teal font-mono text-sm">
             ← Back to articles
           </NuxtLink>
@@ -32,13 +30,18 @@
 
 <script setup lang="ts">
 const route = useRoute()
+const config = useRuntimeConfig()
 
-const { data: article } = await useAsyncData(`article-${route.params.slug}`, async () => {
-  return queryContent(`blog/${route.params.slug}`).findOne()
+// Jei API grąžina objektą tiesiogiai (kaip tavo pavyzdyje):
+const { data: article, error } = await useFetch(`/posts/${route.params.slug}`, {
+  baseURL: config.public.apiBase,
+  // Jei JSON neturi "data" rakto, transformacijos nereikia:
+  // transform: (res: any) => res // Arba tiesiog ištrink šią eilutę
 })
 
-useHead({
-  title: computed(() => article.value?.title || 'Article - Aivaras'),
+// Debuggingui (pasitikrink konsolėje, ką gauni)
+watchEffect(() => {
+  if (article.value) console.log('Straipsnis užkrautas:', article.value)
 })
 </script>
 

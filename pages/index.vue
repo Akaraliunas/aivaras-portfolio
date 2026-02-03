@@ -172,7 +172,7 @@
 const config = useRuntimeConfig()
 
 // Traukiame patirtis iš tavo Laravel API
-const { data: experiences, pending } = await useFetch('/experience', {
+const { data: experiences, pending } = await useFetch('/experiences', {
   baseURL: config.public.apiBase,
   transform: (res: any) => res.data
 })
