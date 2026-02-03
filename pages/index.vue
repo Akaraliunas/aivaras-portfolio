@@ -91,14 +91,18 @@
         <h3 class="font-mono font-bold text-xl mb-4 glow-text">
           / about
         </h3>
-        <div v-if="aboutPending" class="animate-pulse space-y-4">
-          <div class="h-4 bg-gray-700 rounded w-3/4"></div>
-          <div class="h-4 bg-gray-700 rounded w-5/6"></div>
-        </div>
-
-        <div v-else class="space-y-4 text-gray-300 leading-relaxed">
-          <p class="text-gray-300 leading-relaxed [&>*]:pb-4" v-html="about?.bio"></p>
-        </div>
+        <ClientOnly>
+          <div v-if="about" class="space-y-4 text-gray-300">
+            <div v-html="about.bio" class="prose prose-invert max-w-none [&>*]:pb-4"></div>
+          </div>
+          
+          <template #fallback>
+            <div class="animate-pulse space-y-4">
+              <div class="h-4 bg-gray-700 rounded w-3/4"></div>
+              <div class="h-4 bg-gray-700 rounded w-5/6"></div>
+            </div>
+          </template>
+        </ClientOnly>
       </div>
     </section>
 
@@ -136,24 +140,51 @@
         </div>
 
         <!-- Contact Form -->
-        <form class="space-y-4">
+        <form @submit.prevent="submitForm" class="space-y-4">
+          <div v-if="status.success" class="p-4 bg-neon-cyan/10 border border-neon-cyan text-neon-cyan font-mono text-sm mb-4">
+            [SUCCESS]: Message transmitted successfully.
+          </div>
+
+          <div v-if="status.error" class="p-4 bg-red-500/10 border border-red-500 text-red-500 font-mono text-sm mb-4">
+            [ERROR]: {{ status.error }}
+          </div>
+
           <input
+            v-model="form.name"
             type="text"
             placeholder="Your name"
             class="terminal-input w-full"
+            required
           />
           <input
+            v-model="form.email"
             type="email"
             placeholder="your@email.com"
             class="terminal-input w-full"
+            required
+          />
+          <input
+            v-model="form.subject"
+            type="text"
+            placeholder="Subject"
+            class="terminal-input w-full"
+            required
           />
           <textarea
+            v-model="form.message"
             placeholder="Your message..."
             rows="4"
             class="terminal-input w-full resize-none"
+            required
           ></textarea>
-          <button type="submit" class="btn-primary w-full md:w-auto">
-            Send Message
+          
+          <button 
+            type="submit" 
+            :disabled="status.loading"
+            class="btn-primary w-full md:w-auto flex items-center justify-center gap-2"
+          >
+            <span v-if="status.loading" class="animate-spin">◌</span>
+            {{ status.loading ? 'Transmitting...' : 'Send Message' }}
           </button>
         </form>
       </div>
@@ -175,16 +206,48 @@ const config = useRuntimeConfig()
 
 // Fetch experiences Data
 const { data: experiences, pending } = await useFetch('/experiences', {
+  key: 'exp-list',
   baseURL: config.public.apiBase,
   transform: (res: any) => res.data
 })
 
-// Fetch About Data (The Singleton)
-const { data: about, pending: aboutPending } = await useFetch('/about', {
-  key: 'about-me-data',
-  baseURL: config.public.apiBase,
-  // transform: (res: any) => res.data
+// About (Direct Object - NO .data wrapper)
+const { data: about, pending: aboutPending } = await useAsyncData('about-key', 
+  () => $fetch('/about', { baseURL: config.public.apiBase })
+)
+
+const form = ref({
+  name: '',
+  email: '',
+  subject: '',
+  message: ''
 })
+
+const status = ref({
+  loading: false,
+  success: false,
+  error: null as string | null
+})
+
+const submitForm = async () => {
+  status.value.loading = true
+  status.value.error = null
+  
+  try {
+    await $fetch('/contact', {
+      method: 'POST',
+      baseURL: config.public.apiBase,
+      body: form.value
+    })
+    
+    status.value.success = true
+    form.value = { name: '', email: '', subject: '' , message: '' } // Reset form
+  } catch (e: any) {
+    status.value.error = e.data?.message || 'Something went wrong. Please try again.'
+  } finally {
+    status.value.loading = false
+  }
+}
 
 useHead({
   title: 'Aivaras K. - Full-Stack Developer',
