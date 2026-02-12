@@ -46,6 +46,27 @@
       </div>
     </section>
 
+        <!-- About Section -->
+    <section class="max-w-6xl mx-auto px-4 py-20">
+      <div class="glass rounded-lg p-8 md:p-12">
+        <h3 class="font-mono font-bold text-xl mb-4 glow-text">
+          / about
+        </h3>
+        <ClientOnly>
+          <div v-if="about" class="space-y-4 text-gray-300">
+            <div v-html="about.bio" class="prose prose-invert max-w-none [&>*]:pb-4"></div>
+          </div>
+          
+          <template #fallback>
+            <div class="animate-pulse space-y-4">
+              <div class="h-4 bg-gray-700 rounded w-3/4"></div>
+              <div class="h-4 bg-gray-700 rounded w-5/6"></div>
+            </div>
+          </template>
+        </ClientOnly>
+      </div>
+    </section>
+
     <!-- Experience Section -->
     <section class="max-w-6xl mx-auto px-4 py-20 border-cyber border-none">
       <h2 class="section-title">/ experience</h2>
@@ -85,26 +106,7 @@
       <SkillsGrid />
     </section>
 
-    <!-- About Section -->
-    <section class="max-w-6xl mx-auto px-4 py-20">
-      <div class="glass rounded-lg p-8 md:p-12">
-        <h3 class="font-mono font-bold text-xl mb-4 glow-text">
-          / about
-        </h3>
-        <ClientOnly>
-          <div v-if="about" class="space-y-4 text-gray-300">
-            <div v-html="about.bio" class="prose prose-invert max-w-none [&>*]:pb-4"></div>
-          </div>
-          
-          <template #fallback>
-            <div class="animate-pulse space-y-4">
-              <div class="h-4 bg-gray-700 rounded w-3/4"></div>
-              <div class="h-4 bg-gray-700 rounded w-5/6"></div>
-            </div>
-          </template>
-        </ClientOnly>
-      </div>
-    </section>
+
 
     <!-- Contact Section -->
     <section id="contact" class="max-w-6xl mx-auto px-4 py-20 border-cyber border-none">
